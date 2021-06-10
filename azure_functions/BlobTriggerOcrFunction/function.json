@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "rawimages/{name}.png",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}

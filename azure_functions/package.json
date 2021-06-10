@@ -1,0 +1,13 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "author": "",
+  "dependencies": {
+    "@azure/cognitiveservices-computervision": "^8.0.0",
+    "async": "^3.2.0"
+  }
+}

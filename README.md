@@ -35,7 +35,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/...<SUBSC
 ARM_CLIENT_ID = appId
 ARM_CLIENT_SECRET = password
 ARM_TENANT_ID = tenant
-ARM_SUBSCRIPTION_ID can be found in the `Service Principal` account
+ARM_SUBSCRIPTION_ID can be found in the `Azure Portal` or in the `Service Principal` account `id`
 ```
 
 * login as `Service Principal`
@@ -77,10 +77,54 @@ terraform apply -input=false "planfile"
 
 ## setup terraform tfstate in azure
 * generate resource group `azure-terraform-ocr-tfstate` in azure console
-* generate storage account `tfstate-sa` in azure console, remember the `key` under menu `Access keys`,
-* generate storage container `tfstate-sc` in azure console
+* generate storage account `tfstatestoracc` in azure console, remember the `key` under menu `Access keys`, deactivate `Enable blob public access`, chose `LRS`
+* generate storage container `tfstatestorcon` in azure console
 * set values in `github`>>`settings`>>`secrets`
   AZDO_PERSONAL_ACCESS_TOKEN="..."
   
+
+## set up azure function
+* select function folder
+```shell
+cd azure_functions
+```
+
+* install function build tools
+```shell
+npm install -g azure-functions-core-tools@3 --unsafe-perm true
+```
+or 
+
+```shell
+brew tap azure/functions
+brew install azure-functions-core-tools@3
+```
+
+* initialize function project
+```shell
+func init
+```
+
+* start function locally
+```shell
+func start
+```
+
+* deploy function
+```shell
+npm ci
+func azure functionapp publish azure-terraform-ocr-node-functions
+```
+
 ## setup pipeline
-valheim automatic deployment to azure
+TODO
+
+## further reads
+* [Documentation Microsoft Cloud Computer Vision](https://docs.microsoft.com/de-de/azure/cognitive-services/computer-vision/)
+* [Cognitive Services Javascript Sample](https://github.com/Azure-Samples/js-e2e-client-cognitive-services/tree/main/)
+* [create BlobTrigger function](https://docs.microsoft.com/de-de/azure/azure-functions/functions-create-storage-blob-triggered-function)
+* [terraform azurerm_function_app](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/function_app)
+* [Quick Start: Cognitive Services Read API Node.js](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/quickstarts-sdk/client-library?tabs=visual-studio&pivots=programming-language-javascript)
+* [Cognitive Services API Documentation](https://centraluseuap.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
+* [Cognitive Services Daocker Image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)
+* [Computer Vision Costs S1](https://azure.microsoft.com/de-de/pricing/details/cognitive-services/)
