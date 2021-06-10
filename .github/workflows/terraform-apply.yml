@@ -16,19 +16,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
-
       - name: Terraform Init
         run: terraform init -reconfigure
-
       - name: Terraform Plan
-        run: |
-          terraform plan -out "planfile"
-            -var "valheim_server_pass=${VALHEIM_SERVER_PASS}"
-            -var "valheim_server_name=${VALHEIM_SERVER_NAME}"
-            -var "valheim_server_world=${VALHEIM_SERVER_PASS}"
-
-      - name: Terraform Apply
-        run: terraform apply -input=false -auto-approve "planfile"
+        run: terraform plan -out "planfile"
+#      - name: Terraform Apply
+#        run: terraform apply -input=false -auto-approve "planfile"
