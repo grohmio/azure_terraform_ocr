@@ -1,7 +1,12 @@
 # azure_terraform_ocr
 
+## purpose
+* simple example doing OCR using Azure Function Apps, Cognitive Services Blob Storage in combination with terraform
+
 ## initial setup project from scratch
 * prerequisits `azure-cli`, `azure subscription`
+* fork this repo
+
 ### create Service Principal
 * `azure-cli` login
 ```shell
