@@ -13,14 +13,13 @@ const ApiKeyCredentials = require('@azure/ms-rest-js').ApiKeyCredentials;
  * AUTHENTICATE
  * This single client is used for all examples.
  */
-const key = 'YOUR-COGNITIVE-SERVICE-KEY';
-const endpoint = 'YOUR-COGNITIVE-SERVICE-ENDPOINT-URL';
+const key = 'YOUR_COGNITIVE_SERVICE_KEY';
+const endpoint = 'YOUR_COGNITIVE_SERVICE_ENDPOINT';
 
 const computerVisionClient = new ComputerVisionClient(
     new ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': key } }), endpoint);
 
 function computerVision(context, myBlob) {
-
     async.series([
         async function () {
             const printedTextSampleURL = context.bindingData.uri;
