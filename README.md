@@ -2,6 +2,7 @@
 
 ## purpose
 * simple example doing OCR using Azure Function Apps, Cognitive Services Blob Storage in combination with terraform
+* results can be found in Cognitive Service logs in your Azure Portal
 
 ## initial setup project from scratch
 * prerequisits `azure-cli`, `azure subscription`

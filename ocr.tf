@@ -3,13 +3,18 @@ resource "azurerm_resource_group" "ocr-rg" {
   location = var.location
 }
 
+resource "random_string" "ocr-cognitive-service-postfix" {
+  length  = 5
+  special = false
+}
+
 resource "azurerm_cognitive_account" "ocr-ca" {
-  name                  = "ocr-s1-123"
+  name                  = "computer-vision-s1-${random_string.ocr-cognitive-service-postfix.result}"
   location              = azurerm_resource_group.ocr-rg.location
   resource_group_name   = azurerm_resource_group.ocr-rg.name
   kind                  = "ComputerVision"
   sku_name              = "S1"
-  custom_subdomain_name = "ocr-s1-123"
+  custom_subdomain_name = "computer-vision-s1-${random_string.ocr-cognitive-service-postfix.result}"
 }
 
 resource "azurerm_storage_account" "ocr-sa" {
