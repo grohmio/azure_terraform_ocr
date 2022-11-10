@@ -4,12 +4,17 @@ variable "location" {
   default     = "westeurope"
 }
 
-variable "COGNITIVE_SERVICE_ACCOUNT_NAME" {
-  type        = string
-  description = "azure cognitive service account name, needs to be unique because of use in url"
-}
+#variable "COGNITIVE_SERVICE_ACCOUNT_NAME" {
+#  type        = string
+#  description = "azure cognitive service account name, needs to be unique because of use in url"
+#}
+#
+#variable "OCR_STORAGE_ACCOUNT_NAME" {
+#  type        = string
+#  description = "azure storage account name, , needs to be unique because of use in url"
+#}
 
-variable "OCR_STORAGE_ACCOUNT_NAME" {
+variable "CUSTOMIZER" {
   type        = string
-  description = "azure storage account name, , needs to be unique because of use in url"
+  description = "needed to make the cognitive service account name, azure storage account name and function app name unique, needs to be unique because of use in url"
 }

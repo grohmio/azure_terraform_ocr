@@ -4,16 +4,16 @@ resource "azurerm_resource_group" "ocr-rg" {
 }
 
 resource "azurerm_cognitive_account" "ocr-ca" {
-  name                  = var.COGNITIVE_SERVICE_ACCOUNT_NAME
+  name                  = "ocr-s1-${var.CUSTOMIZER}"
   location              = azurerm_resource_group.ocr-rg.location
   resource_group_name   = azurerm_resource_group.ocr-rg.name
   kind                  = "ComputerVision"
   sku_name              = "S1"
-  custom_subdomain_name = var.COGNITIVE_SERVICE_ACCOUNT_NAME
+  custom_subdomain_name = "ocr-s1-${var.CUSTOMIZER}"
 }
 
 resource "azurerm_storage_account" "ocr-sa" {
-  name                     = var.OCR_STORAGE_ACCOUNT_NAME
+  name                     = "ocrstoracc${var.CUSTOMIZER}"
   resource_group_name      = azurerm_resource_group.ocr-rg.name
   location                 = azurerm_resource_group.ocr-rg.location
   account_tier             = "Standard"
@@ -40,7 +40,7 @@ resource "azurerm_app_service_plan" "ocr-node-asp" {
 }
 
 resource "azurerm_function_app" "ocr-node-fa" {
-  name                       = "azure-terraform-ocr-node-functions"
+  name                       = "azure-terraform-ocr-node-functions-${var.CUSTOMIZER})"
   location                   = azurerm_resource_group.ocr-rg.location
   resource_group_name        = azurerm_resource_group.ocr-rg.name
   app_service_plan_id        = azurerm_app_service_plan.ocr-node-asp.id
