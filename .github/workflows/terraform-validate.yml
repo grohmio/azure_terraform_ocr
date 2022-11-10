@@ -1,6 +1,7 @@
 name: Terraform Validate
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [ main ]
 
