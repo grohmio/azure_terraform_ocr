@@ -9,7 +9,7 @@ resource "azurerm_cognitive_account" "ocr-ca" {
   resource_group_name   = azurerm_resource_group.ocr-rg.name
   kind                  = "ComputerVision"
   sku_name              = "S1"
-  custom_subdomain_name = var.COGNITIVE_SERVICE_ACCOUNT
+  custom_subdomain_name = var.COGNITIVE_SERVICE_ACCOUNT_NAME
 }
 
 resource "azurerm_storage_account" "ocr-sa" {
