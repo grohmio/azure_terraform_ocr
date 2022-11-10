@@ -4,7 +4,7 @@ resource "azurerm_resource_group" "ocr-rg" {
 }
 
 resource "azurerm_cognitive_account" "ocr-ca" {
-  name                  = var.COGNITIVE_SERVICE_ACCOUNT
+  name                  = var.COGNITIVE_SERVICE_ACCOUNT_NAME
   location              = azurerm_resource_group.ocr-rg.location
   resource_group_name   = azurerm_resource_group.ocr-rg.name
   kind                  = "ComputerVision"
