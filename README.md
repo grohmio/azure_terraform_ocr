@@ -86,7 +86,9 @@ terraform apply -input=false "planfile"
 * set values in `github`>>`settings`>>`secrets>>actions`
 ```
 AZDO_PERSONAL_ACCESS_TOKEN=...key...
-STORAGE_ACCOUNT_NAME=tfstatestoraccXYZ
+TFSTATE_STORAGE_ACCOUNT_NAME=tfstatestoraccXYZ
+TF_VAR_COGNITIVE_SERVICE_ACCOUNT_NAME=...<custom and unique>...
+TF_VAR_OCR_STORAGE_ACCOUNT_NAME=...<custom and unique>...
 ```
 
 ## set up azure function
