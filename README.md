@@ -86,7 +86,7 @@ terraform apply -input=false "planfile"
 * set values in `github`>>`settings`>>`secrets>>actions`
 ```
 AZDO_PERSONAL_ACCESS_TOKEN=...key...
-TF_VAR_storage_account_name=tfstatestoraccXYZ
+STORAGE_ACCOUNT_NAME=tfstatestoraccXYZ
 ```
 
 ## set up azure function
