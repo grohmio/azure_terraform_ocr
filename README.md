@@ -82,7 +82,7 @@ terraform apply -input=false "planfile"
 
 ## setup terraform tfstate in azure
 * generate resource group `azure-terraform-ocr-tfstate` in azure console
-* generate storage account `tfstatetsnord` in azure console, remember the `key` under menu `Access keys`, deactivate `Enable blob public access`, chose `LRS`
+* generate storage account `tfstatestoracc` in azure console, remember the `key` under menu `Access keys`, deactivate `Enable blob public access`, chose `LRS`
 * generate storage container `tfstatestorcon` in azure console
 * set values in `github`>>`settings`>>`secrets`
   AZDO_PERSONAL_ACCESS_TOKEN="..."
