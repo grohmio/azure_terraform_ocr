@@ -14,13 +14,14 @@ jobs:
       ARM_CLIENT_SECRET: ${{secrets.ARM_CLIENT_SECRET}}
       ARM_SUBSCRIPTION_ID: ${{secrets.ARM_SUBSCRIPTION_ID}}
       ARM_TENANT_ID: ${{secrets.ARM_TENANT_ID}}
+      STORAGE_ACCOUNT_NAME: ${{secrets.TFSTATE_STORAGE_ACCOUNT_NAME}}
 
     steps:
       - uses: actions/checkout@v2
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
       - name: Terraform Init
-        run: terraform init -reconfigure -backend-config="storage_account_name=$STORAGE_ACCOUNT_NAME"
+        run: terraform init -reconfigure -backend-config="storage_account_name=$TFSTATE_STORAGE_ACCOUNT_NAME"
       - name: Terraform Validate
         run: terraform validate
       - name: Terraform Format
