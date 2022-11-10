@@ -40,7 +40,7 @@ resource "azurerm_app_service_plan" "ocr-node-asp" {
 }
 
 resource "azurerm_function_app" "ocr-node-fa" {
-  name                       = "azure-terraform-ocr-node-functions-${var.CUSTOMIZER})"
+  name                       = "azure-terraform-ocr-node-functions-${var.CUSTOMIZER}"
   location                   = azurerm_resource_group.ocr-rg.location
   resource_group_name        = azurerm_resource_group.ocr-rg.name
   app_service_plan_id        = azurerm_app_service_plan.ocr-node-asp.id
