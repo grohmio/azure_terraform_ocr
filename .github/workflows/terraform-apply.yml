@@ -23,5 +23,5 @@ jobs:
         run: terraform init -reconfigure
       - name: Terraform Plan
         run: terraform plan -out "planfile"
-#      - name: Terraform Apply
-#        run: terraform apply -input=false -auto-approve "planfile"
+      - name: Terraform Apply
+        run: terraform apply -input=false -auto-approve "planfile"
