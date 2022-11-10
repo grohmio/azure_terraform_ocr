@@ -8,7 +8,7 @@ terraform {
 
   backend "azurerm" {
     resource_group_name  = "azure-terraform-ocr-tfstate"
-    storage_account_name = "tfstatetsnord"
+    storage_account_name = "tfstatestoracc"
     container_name       = "tfstatestorcon"
     key                  = "terraform.tfstate"
   }
